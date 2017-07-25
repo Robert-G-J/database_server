@@ -11,10 +11,9 @@ RSpec.describe "DatabaseServer" do
 #----------------------------------  
 
   describe "GET requests" do
-    it "responds with text" do
-      get '/'
-      expect(last_response).to be_ok
-      expect(last_response.body).to eq 'Database Server'
+    it "return a hardcoded value from memory" do
+      get '/get?key=somekey'
+      expect(last_response.body).to eq "somevalue"
     end
   end
 end

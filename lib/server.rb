@@ -2,7 +2,7 @@ require 'sinatra/base'
 
 class DatabaseServer < Sinatra::Base
 
-  get '/' do
-    'Database Server'
+  get '/get' do
+    'somevalue'
   end
 end
