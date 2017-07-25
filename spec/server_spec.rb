@@ -33,6 +33,12 @@ RSpec.describe 'DatabaseServer' do
       make_get_request()
       expect(last_response.body).to eq nil.to_s
     end
+
+    it 'return nil-string for unknown key' do
+      make_post_request(post_data)
+      make_get_request('unknown key')
+      expect(last_response.body).to eq nil.to_s
+    end
   end
 
   #-------- Helpers ----------------
