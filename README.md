@@ -2,7 +2,7 @@
 
 ## Installation
 
-- Clone/fork this repo
+Clone/fork this repo
 ```
 $ cd path/to/repo
 $ bundle install
@@ -15,9 +15,28 @@ $ rspec
 
 ### Technologies
 
-- Language: Ruby, Version 2.4.0
-- Framework: Sinatra
-- Testing: RSpec, Rack-Test
+- _Language_: Ruby, Version 2.4.0
+- _Framework_: Sinatra
+- _Testing_: RSpec, Rack-Test
+
+### Approach
+I approached this by first testing for a route that responds to a 
+simple GET request, so that all configuration with Sinatra and Rack-Test
+might be test-driven.
+
+Subsequently, I test-drove a post request. I chose a post request over a get
+request because the server is being required to store data.
+
+Following this, I refactored my tests with helper-methods so that they
+better described their intent, while removing hardcoded values.
+
+Finally, I tested for cases where no values were submitted, so that another
+developer might be able to tell if the code were to behave unpredictably.
+
+With respect to being open for extension so that a database might be added:
+currently the submitted data is stored in a hash. This could easily be pushed
+as JSON into a database such as MongoDB, for later retrieval.
+
 ---
 # Supplied Specification:
 
