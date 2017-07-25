@@ -16,6 +16,7 @@ RSpec.describe 'DatabaseServer' do
 
   describe 'GET requests' do
     it 'return a hardcoded value from memory' do
+      make_post_request(post_data) 
       make_get_request(key)
       expect(last_response.body).to eq value
     end
@@ -23,7 +24,7 @@ RSpec.describe 'DatabaseServer' do
 
   describe 'POST requests' do
     it 'stores a key-value pair' do
-      post 'set', post_data
+      make_post_request(post_data)
       expect(last_response.body).to eq(post_data.flatten.to_s)
     end
   end
@@ -33,4 +34,7 @@ RSpec.describe 'DatabaseServer' do
     get "/get?key=#{key}"
   end
 
+  def make_post_request(post_data)
+    post 'set', post_data
+  end
 end

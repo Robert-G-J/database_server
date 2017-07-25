@@ -5,7 +5,7 @@ class DatabaseServer < Sinatra::Base
   server_data = {}
   
   get '/get' do
-    'somevalue'
+    server_data[params[:key]]  
   end
   
   post '/set' do
